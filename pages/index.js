@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
-import { useExperiment } from "@growthbook/growthbook-react";
+import { useFeature } from "@growthbook/growthbook-react";
 
 const GreenBox = () => {
   return (
@@ -15,12 +15,9 @@ const RedBox = () => {
 };
 
 export default function Home() {
-  const experiment = useExperiment({
-    key: "toggle-button",
-    variations: ['old-view', 'new-view'],
-  })
+  const feature = useFeature('toggle-button');
 
-  const boxComponent = experiment.value === 'new-view' ? (
+  const boxComponent = feature.on === 'new-view' ? (
     <GreenBox />
   ) : (
     <RedBox />
