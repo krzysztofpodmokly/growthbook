@@ -17,7 +17,7 @@ const RedBox = () => {
 export default function Home() {
   const feature = useFeature('toggle-button');
 
-  const boxComponent = feature.on === 'new-view' ? (
+  const boxComponent = feature.on ? (
     <GreenBox />
   ) : (
     <RedBox />
